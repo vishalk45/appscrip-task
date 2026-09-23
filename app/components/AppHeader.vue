@@ -42,8 +42,10 @@
           </button>
           <button class="icon-button menu-button" type="button" :aria-expanded="isMenuOpen"
             aria-controls="mobile-navigation" aria-label="Toggle navigation" @click="isMenuOpen = !isMenuOpen">
-            <X v-if="isMenuOpen" :size="25" stroke-width="1.5" />
-            <Menu v-else :size="25" stroke-width="1.5" />
+            <span class="menu-button__icon" :class="{ 'is-active': isMenuOpen }">
+              <X v-if="isMenuOpen" :size="25" stroke-width="1.5" />
+              <Menu v-else :size="25" stroke-width="1.5" />
+            </span>
           </button>
         </div>
       </div>
@@ -52,7 +54,7 @@
         <NuxtLink v-for="link in navigation" :key="link.label" :to="link.to">{{ link.label }}</NuxtLink>
       </nav>
 
-      <nav v-show="isMenuOpen" id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation">
+      <nav id="mobile-navigation" class="mobile-navigation" :class="{ 'is-open': isMenuOpen }" aria-label="Mobile navigation" aria-hidden="!isMenuOpen">
         <NuxtLink v-for="link in navigation" :key="link.label" :to="link.to" @click="isMenuOpen = false">
           {{ link.label }}
         </NuxtLink>

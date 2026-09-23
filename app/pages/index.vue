@@ -72,6 +72,21 @@
 <script setup lang="ts">
 import { Check, ChevronDown, Heart, SlidersHorizontal, X } from 'lucide-vue-next'
 
+useHead({
+  title: "Vishal | Appscrip Assignment",
+
+  meta: [
+    {
+      name: "description",
+      content: "Appscrip frontend assignment built with Nuxt 4."
+    },
+    {
+      name: "keywords",
+      content: "Nuxt, Vue, Appscrip, Frontend"
+    }
+  ]
+})
+
 const showFilters = ref(false)
 const showSort = ref(false)
 const selectedSort = ref('RECOMMENDED')
